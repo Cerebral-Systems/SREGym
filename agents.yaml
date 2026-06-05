@@ -55,3 +55,14 @@ agents:
     install_script: null
     agent_version: null
     container_isolation: false
+  - name: perception-world-model
+    kickoff_command: python -m clients.perception_world_model.driver
+    kickoff_workdir: .
+    # The cerebral_agents package lives in the sibling repo
+    # ../cerebral/perception-world-model/agents (auto-discovered relative to the
+    # SREGym root; override with CEREBRAL_AGENTS_PATH). Because that source is not
+    # baked into the agent container image, this agent runs on the host.
+    kickoff_env: null
+    install_script: null
+    agent_version: null
+    container_isolation: false
